@@ -1,0 +1,112 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    padding: 0px;
+}
+
+/* Section */
+.section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    position: relative;
+    z-index: 0;
+}
+
+.section:nth-child(1) {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 80%);
+    height: 100vh;
+    padding-top: 0;
+    background-color: #95afc0;
+}
+
+.clip-path-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.clipBack {
+    height: 100%;
+    clip-path: polygon(0 0, 100% 40%, 100% 100%, 0% 60%);
+    background-color: #7ed6df;
+    position: relative;
+    z-index: 1;
+}
+
+.clipBackInvert {
+    height: 100%;
+    clip-path: polygon(100% 0, 0% 40%, 0 100%, 100% 60%);
+    background-color: #22a6b3;
+    position: relative;
+    z-index: 1;
+}
+
+.section:nth-child(4) {
+    clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0% 100%);
+    height: 100vh;
+    padding-top: 0;
+    background-color: #95afc0;
+}
+
+/* Menu */
+.menu-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #30336b;
+    color: white;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    padding-left: 50px;
+}
+
+.nav-item {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.nav-item:not(.active)>.nav-link:hover {
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.active {
+    background-color: #4834d4;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+/* Conteudo */
+.conteudo {
+    padding-left: 75px;
+    padding-right: 75px;
+    text-align: justify;
+}
+
+/* Copyright */
+.copyright {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 8vh;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    align-content: center;
+}
