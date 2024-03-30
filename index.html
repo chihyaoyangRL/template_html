@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrolling Sections</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            background-color: #f0f0f0;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .section:nth-child(odd) {
+            background-color: #e0e0e0;
+        }
+
+        .section:nth-child(1),
+        .section:nth-child(2),
+        .section:nth-child(3) {
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 80%);
+            height: 105vh;
+        }
+
+        .section:nth-child(2),
+        .section:nth-child(4) {
+            clip-path: polygon(0 0, 100% 80%, 100% 100%, 0% 100%);
+        }
+
+        .section:nth-child(2),
+        .section:nth-child(3),
+        .section:nth-child(4) {
+            scroll-margin-top: 5vh;
+            /* Ajuste aqui para a quantidade de sobreposição desejada */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <section class="section">
+            <h1>Seção 1</h1>
+            <p>Conteúdo da primeira seção.</p>
+        </section>
+        <section class="section">
+            <h1>Seção 2</h1>
+            <p>Conteúdo da segunda seção.</p>
+        </section>
+        <section class="section">
+            <h1>Seção 3</h1>
+            <p>Conteúdo da terceira seção.</p>
+        </section>
+        <section class="section">
+            <h1>Seção 4</h1>
+            <p>Conteúdo da quarta seção.</p>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                section.addEventListener('wheel', (e) => {
+                    const deltaY = e.deltaY;
+                    const scrollable = deltaY > 0 && !section.nextElementSibling || deltaY < 0 && !section.previousElementSibling;
+
+                    if (scrollable) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
