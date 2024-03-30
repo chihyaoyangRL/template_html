@@ -1,9 +1,11 @@
 const isMobile = window.innerWidth <= 768;
 if (isMobile == true) {
+    $('.footerContent').attr('hidden', true);
     $('.fade-in-Down').addClass('show');
     $('.fade-in-R').addClass('show');
     $('.fade-in-L').addClass('show');
 } else {
+    $('footerContent').attr('hidden', false);
     document.addEventListener('DOMContentLoaded', () => {
         const sections = document.querySelectorAll('.section');
         sections.forEach(section => {
