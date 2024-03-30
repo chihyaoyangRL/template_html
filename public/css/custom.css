@@ -1,3 +1,6 @@
+:root {
+    --aniFadeTime: 0.9s;
+}
 body, html {
     height: 100%;
     margin: 0;
@@ -109,4 +112,38 @@ body, html {
     bottom: 0;
     text-align: center;
     align-content: center;
+}
+
+/* Animation */
+.fade-in-R {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity var(--aniFadeTime) ease-in-out, transform var(--aniFadeTime) ease-in-out;
+}
+
+.fade-in-R.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-L {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity var(--aniFadeTime) ease-in-out, transform var(--aniFadeTime) ease-in-out;
+}
+
+.fade-in-L.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-Down {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity var(--aniFadeTime) ease-in-out, transform var(--aniFadeTime) ease-in-out;
+}
+
+.fade-in-Down.show {
+    opacity: 1;
+    transform: translateY(0);
 }
